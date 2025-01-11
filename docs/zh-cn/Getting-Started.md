@@ -16,8 +16,8 @@
 * `/ban ExamplePlayer 5d 服从即解放` -> ExamplePlayer被封禁**5天**，原因是"服从即解放"
 
 ### 时间格式
-时间格式遵循一个基本的规律：
-`<数值><单位>`
+时间格式参照这个简单的公式：
+`<数字><时间单位>`
 
 您可以使用以下单位：
 * m = 分钟
@@ -39,7 +39,6 @@
 * 如果您指定的是IP地址，LibertyBans将封禁该IP地址，任何使用该IP地址的玩家都会被封禁（参见[处罚的执行方式](Punishment-Enforcement_-Lenient,-Normal,-and-Strict-settings)）
 
 封禁举例：
-
 * `/ban DeviousPlayer` - 封禁DeviousPlayer。
 * `/ban 192.110.162.103` - 封禁IP地址192.110.162.103。
 * `/ipban 192.110.162.103` 封禁IP地址192.110.162.103。与`/ban 192.110.162.103`效果一致。
@@ -51,4 +50,3 @@
 * `/unban 192.222.222.222` - 解封IP地址192.110.162.103。
 * `/unbanip 192.222.222.222` 解封IP地址192.110.162.103。与`/unban 192.110.162.103`效果一致。
 * `/unbanip SaintlyPlayer` - 解封SaintlyPlayer的IP地址。
-
