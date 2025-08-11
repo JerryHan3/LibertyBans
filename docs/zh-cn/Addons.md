@@ -14,53 +14,53 @@ LibertyBans以扩展程序的形式提供了一些额外功能。
 [LibertyBans] Detected 2 addon(s)
 ```
 
-## Configuring and Managing Addons
+## 配置、管理扩展
 
-Addon configuration is located in the same place as the installed addon jars -- the `addons` directory of the LibertyBans plugin folder.
+扩展的配置文件和扩展jar文件的位置相同——它们都在LibertyBans插件文件夹的`addons`目录中。
 
-After configuring an addon, run `/libertybans reload`.
+在配置完扩展之后，请运行`/libertybans reload`。
 
-# Available Addons
+# 可用的扩展
 
-Each addon has its ID listed in [brackets].
+每个扩展的ID都在[中括号]中呈现。
 
-## New Commands
+## 添加新命令
 
-### Check punishment [command-checkpunish]
+### 检查处罚记录 [command-checkpunish]
 
-This addon enables the `/libertybans checkpunish <id>` command. This command displays the details of a specific punishment given the punishment ID.
+此扩展启用了`/libertybans checkpunish <id>`命令。该命令可以根据提供的处罚ID显示一次处罚操作的具体信息。
 
-Requires the permission `libertybans.addon.checkpunish.use`.
+命令需要权限`libertybans.addon.checkpunish.use`。
 
-### Check user [command-checkuser]
+### 检查用户 [command-checkuser]
 
-Provides the `/libertybans checkuser <player>` command. This command displays if the given player is banned or muted.
+此扩展提供了`/libertybans checkuser <player>`命令。该命令会显示指定玩家被封禁或禁言的情况。
 
-Requires the permission `libertybans.addon.checkuser.use`.
+命令需要权限`libertybans.addon.checkuser.use`。
 
-### Expunge [command-expunge]
+### 清除 [command-expunge]
 
-Provides the `/libertybans expunge <id> command`. This allows to remove the specified punishment from the database record. Useful for removing invalid/unintentional punishments.
+此扩展提供了`/libertybans expunge <id> command`命令。该命令可以从数据库中移除指定的处罚记录。适用于清理无效或意外的处罚。
 
-**WARNING: Purged punishments are NOT recoverable.**
+**警告：被清理的记录不可恢复。**
 
-Requires the permission `libertybans.addon.expunge.use`
+命令需要权限`libertybans.addon.expunge.use`。
 
-### Extend [command-extend]
+### 延期 [command-extend]
 
-Provides the `/libertybans extend <id> <time>` command. Allows to extend a specified existing (active) punishment for a specified additional duration
+此扩展提供了`/libertybans extend <id> <time>`命令。您可以指定一个现有且未过期的处罚，将其额外延长一定时间。
 
-Requires the permission `libertybans.addon.extend.use`
+命令需要权限`libertybans.addon.extend.use`。
 
-### Staff rollback [command-staffrollback]
+### 管理操作回滚 [command-staffrollback]
 
-Provides the `/libertybans staffrollback <operator> [time]` command. Performing a rollback fully purges all punishments by a certain staff member, which is useful if a staff member becomes rogue or has their account hacked.
+此扩展提供了`/libertybans staffrollback <operator> [time]`命令。执行回滚操作会彻底清除特定管理人员执行的全部处罚。适用于管理恶意处罚或者账号遭窃的情况。
 
-The `[time]` argument identifies how long ago punishments should be purged. Punishments made earlier than the given amount of time ago are kept.
+`[time]`参数确定了多久之前的处罚操作应该被清除。早于该时间段的处罚操作仍会被保留。
 
-**WARNING: Purged punishments are NOT recoverable.**
+确定了多久之前的惩罚应该被清除。**警告：被清理的记录不可恢复。**
 
-Requires the permission `libertybans.addon.staffrollback.use`.
+命令需要权限`libertybans.addon.staffrollback.use`。
 
 ## Exemption
 
