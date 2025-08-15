@@ -52,14 +52,13 @@ aliases:
 
 ### BungeeCord 命令别名插件
 
-在BungeeCord您也可以找到设置命令别名的插件。
-
+在BungeeCord您也可以找到设置命令别名的插件。   
 我们了解一些这类的插件，如[TCAlias](https://www.spigotmc.org/resources/t2c-alias-alias-plugin-for-spigot-bungee-commands-1-8-x-1-21.96389/)和[BungeeCommands](https://www.spigotmc.org/resources/bungeecommands-custom-commands-aliases.20771/).
 
 ### Velocity 命令别名插件
 
 [CustomCommands](https://modrinth.com/plugin/customcommandsvelocity) 是一个让您定义自己的命令的插件。   
-  此外，还有[Aliasr](https://github.com/tobi406/aliasr)这个插件，但是它是为Velocity 1.x版本制作的，目前需要更新到Velocity 3.x版本。、
+  此外，还有[Aliasr](https://github.com/tobi406/aliasr)这个插件，但是它是为Velocity 1.x版本制作的，目前需要更新到Velocity 3.x版本。
 
 ### Sponge
 
