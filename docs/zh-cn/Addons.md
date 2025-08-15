@@ -5,7 +5,7 @@ LibertyBans以扩展程序的形式提供了一些额外功能。
 
 ## 安装扩展
 
-你可以简单地使用 `/libertybans addon install <addon>` 来安装扩展。请把 `<addon>` 替换成你想要使用的扩展的ID。命令执行时，会把所需的扩展释放到文件系统中，这样下次重启的时候就可以加载了。
+你可以简单地使用 `/libertybans addon install <扩展名>` 来安装扩展。请把 `<扩展名>` 替换成你想要使用的扩展的ID。命令执行时，会把所需的扩展释放到文件系统中，这样下次重启的时候就可以加载了。
 
 你也可以下载扩展jar文件，并把它放到 `plugins/LibertyBans/addons`目录中，最后重启服务器来安装扩展。
 
@@ -34,7 +34,7 @@ LibertyBans以扩展程序的形式提供了一些额外功能。
 
 ### 检查用户 [command-checkuser]
 
-此扩展提供了`/libertybans checkuser <player>`命令。该命令会显示指定玩家被封禁或禁言的情况。
+此扩展提供了`/libertybans checkuser <玩家>`命令。该命令会显示指定玩家被封禁或禁言的情况。
 
 命令需要权限`libertybans.addon.checkuser.use`。
 
@@ -48,21 +48,21 @@ LibertyBans以扩展程序的形式提供了一些额外功能。
 
 ### 延期 [command-extend]
 
-此扩展提供了`/libertybans extend <id> <time>`命令。您可以指定一个现有且未过期的处罚，将其额外延长一定时间。
+此扩展提供了`/libertybans extend <id> <时间>`命令。您可以指定一个现有且未过期的处罚，将其额外延长一定时间。
 
 命令需要权限`libertybans.addon.extend.use`。
 
 ### 管理操作回滚 [command-staffrollback]
 
-此扩展提供了`/libertybans staffrollback <operator> [time]`命令。执行回滚操作会彻底清除特定管理人员执行的全部处罚。适用于管理恶意处罚或者账号遭窃的情况。
+此扩展提供了`/libertybans staffrollback <管理员> [时间]`命令。执行回滚操作会彻底清除特定管理人员执行的全部处罚。适用于管理恶意处罚或者账号遭窃的情况。
 
-`[time]`参数确定了多久之前的处罚操作应该被清除。早于该时间段的处罚操作仍会被保留。
+`[时间]`参数确定了多久之前的处罚操作应该被清除。早于该时间段的处罚操作仍会被保留。
 
 确定了多久之前的惩罚应该被清除。**警告：被清理的记录不可恢复。**
 
 命令需要权限`libertybans.addon.staffrollback.use`。
 
-## Exemption 豁免
+## 豁免
 
 豁免功能允许你保护部分玩家不被处罚。比如，你可能想要阻止协管封禁正式管理员，并且你绝不会想要让服主被封禁。
 
@@ -97,41 +97,41 @@ LibertyBans允许你做到这一点。你可以配置一些豁免规则，使得
 2. 将`max-level-to-scan-for`配置设置为你授予过的最高豁免等级。
 3. 调整`permission-check-thread-context`配置的值来适配你的权限管理插件。
 
-## Layouts [layouts]
+## 预设 [layouts]
 
-The layouts addon provides the `/libertybans punish` command. It is a straightforward yet powerful means of defining punishment templates, ladders, tracks -- however you want to call them.
+预设扩展提供了`/libertybans punish`命令。它可以用直观而强大的方式来定义处罚模板、处罚阶梯、处罚路径……反正就是类似的东西。
 
-After a punishment is created via a layout track, it is treated like any other punishment. However, of course, new punishments created using the same track will apply a configured ladder to calculate punishment details.
+使用预设路径执行的处罚和其他的处罚方法类似。当然了，使用相同路径执行的新处罚会使用配置的处罚阶梯来计算新的处罚细节。
 
-### Configuration
+### 配置
 
-The configuration works by defining a ladder for each layout track. Each entry on the ladder specifies the punishment to be applied when a player reaches that many (or more) punishments.
+配置的主要机制是为每一个预设路径定义一个阶梯。如果玩家受到了大于等于指定的处罚次数，插件就会按照阶梯上的内容来决定具体实行的处罚。
 
-### Permission
+### 权限
 
-Permissions to use layouts are similar for permissions to create punishments normally. However, permissions are specific to each layout. Replace `<track>` with the name of the layout track you want to grant permission for.
+使用预设扩展的权限节点与执行常规处罚的类似。不同的是，预设插件通过预设路径来进行区分。设置权限时，请将`<路径>`替换成你配置中的预设路径名。
 
-* `libertybans.addon.layout.use.<track>.target.uuid` - punish players
-* `libertybans.addon.layout.use.<track>.target.ip` - punish IP addresses
-* `libertybans.addon.layout.use.<track>.target.both` - punish player and IP address in the same punishment
-* `libertybans.addon.layout.use.<track>.silent` - use the silent feature
+* `libertybans.addon.layout.use.<路径>.target.uuid` - 处罚玩家
+* `libertybans.addon.layout.use.<路径>.target.ip` - 处罚IP地址
+* `libertybans.addon.layout.use.<路径>.target.both` - 一次性同时处罚玩家和IP地址
+* `libertybans.addon.layout.use.<路径>.silent` - 使用静默功能
 
-Please note that the notification permissions remain tied to the punishment type. In other words, the permissions `libertybans.<type>.<do|undo>.<notify|notifysilent>` remain the same; there are no notification permissions specifically for layouts.
+注意，接收处罚通知的权限仍然是与处罚类型绑定的。换句话来说，`libertybans.<类型>.<do|undo>.<notify|notifysilent>`这个权限节点依旧生效。没有接收特定预设的处罚通知的权限节点。
 
-### Interaction with Exemption Permissions
+### 与豁免扩展的联动
 
-If you are using the Vault permissions exemption addon, then the `libertybans.layout.exempt.level.<level>` permission defines exemption levels. (The typical permission cannot be used because exemption is checked before the punishment is executed).
+如果你在使用基于Vault权限的豁免扩展，那么可以用`libertybans.layout.exempt.level.<豁免等级>`这个权限节点来定义豁免等级。（由于检查豁免等级发生在执行处罚前，原有的权限节点无法使用。）
 
-## Other
+## 其他
 
-### Shortcut Reasons [shortcut-reasons]
+### 原因快捷方式 [shortcut-reasons]
 
-Allows substituting faster shortcuts for commonly-used punishment reasons. For example, `/ban A248 30d #hacking` becomes `/ban A248 30d You are banned for hacking`.
+该扩展允许为常用的处罚原因设置快捷方式。比如，`/ban A248 30d #hacking`可以和`/ban A248 30d 你因为开挂被封禁了！`等效。
 
-Configuration is straight-forward otherwise. If a staff member specifies an invalid shortcut, the command is denied to prevent mistakes. Shortcuts are case-sensitive.
+扩展配置也很直观。如果管理员使用了无效的快捷方式，命令不会被执行，防止出现意外错误。快捷方式区分大小写。
 
-### Warn Actions [warn-actions]
+### 警告操作 [warn-actions]
 
-Allows executing actions, such as executing commands or inflicting additional punishments, when a certain amount of warns is reached.
+允许在达到特定警告次数后执行操作，例如执行命令或者施加附加的处罚。
 
-This addon is relatively easy to use and configure.
+此扩展相对来讲易于使用和配置。
