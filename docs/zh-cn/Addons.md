@@ -3,7 +3,7 @@ LibertyBans以扩展程序的形式提供了一些额外功能。
 
 安装扩展不会造成额外的性能开销：它们会直接注入LibertyBans的核心，而无需经过任何中间层。以扩展的形式实现功能是保持插件可持续开发的一种设计考量。
 
-## s安装扩展
+## 安装扩展
 
 你可以简单地使用 `/libertybans addon install <addon>` 来安装扩展。请把 `<addon>` 替换成你想要使用的扩展的ID。命令执行时，会把所需的扩展释放到文件系统中，这样下次重启的时候就可以加载了。
 
@@ -62,40 +62,40 @@ LibertyBans以扩展程序的形式提供了一些额外功能。
 
 命令需要权限`libertybans.addon.staffrollback.use`。
 
-## Exemption
+## Exemption 豁免
 
-Exemption functionality allows you to protect certain players from punishment. For example, you may want to prevent moderators from banning administrators, and you never want the owner to be banned.
+豁免功能允许你保护部分玩家不被处罚。比如，你可能想要阻止协管封禁正式管理员，并且你绝不会想要让服主被封禁。
 
-LibertyBans allows you to achieve this. You can configure exemption so that owners can ban admins, and admins can ban moderators, but moderators cannot ban admins.
+LibertyBans允许你做到这一点。你可以配置一些豁免规则，使得服主能封禁管理员、管理员能封禁协管，但是协管不能封禁管理员。
 
-Because there is no unified permissions API, LibertyBans requires you to choose and install an exemption backend for this feature to operate:
+由于不存在统一的权限API，为了让该功能正常运作，LibertyBans需要你选择并安装一个支持程序：
 
-1. LuckPerms group weights
-2. Vault permissions
+1. LuckPerms的用户组权重
+2. Vault权限
 
-Notes:
-* The denial message when a staff member tries to punish a superior officer is configurable in the messages.yml file.
-* IP-based punishments do not consider exemption. The exemption feature works best with user and composite punishments.
-* Granting exemption to a user after the fact will not automatically undo existing punishments.
+注意：
+* 该功能阻止低级管理员处罚高级管理员的拒绝消息可以在messages.yml文件中配置。
+* 针对IP地址的处罚不考虑豁免机制。豁免功能适合与复合处罚结合对玩家使用。
+* 在处罚用户后为该用户赋予豁免权，并不能自动撤销现有的处罚。
 
-### Exemption with LuckPerms group weights [exemption-luckperms]
+### 基于LuckPerms用户组权重的豁免 [exemption-luckperms]
 
-This addon works only with LuckPerms, since it leverages LuckPerms' group weights feature.
+此扩展只能和LuckPerms共同使用，因为它利用了LuckPerms的用户组权重功能。
 
-Configuration is simple. Make sure to configure LuckPerms' group weights. Higher staff ranks should have bigger weights.
+配置很简单。只需确保为用户组设置权重。高级的管理员用户组应当具有更高的权重。
 
-An operator can punish a player if the target player has a lower group weight than the operator. Note that LibertyBans considers every group for each user to determine the user's highest group weight.
+管理员可以处罚用户组权重比他自己低的玩家。注意LibertyBans会考虑每名玩家的所有权限组，来确定该用户的最高用户组权重。
 
-### Exemption with Vault permissions [exemption-vault]
+### 基于Vault权限的豁免 [exemption-vault]
 
-This addon provides exemption functionality using tiered permissions. It requires a Vault-compatible permissions plugin and only supports Spigot/Paper servers.
+此扩展根据带等级的权限提供豁免功能。这需要一个与Vault兼容的权限插件，且只支持Spigot或Paper服务器。
 
-The addon operates by defining exemption levels. The higher the exemption level, the more privileged the staff member. Staff members with a lower exemption level cannot punish staff members with a higher level.
+扩展通过定义豁免等级来运作。豁免等级越高，管理员权限也越高。豁免等级低的管理员无法处罚豁免等级高的管理员。
 
-Configuration:
-1. Grant the permission `libertybans.<type>.exempt.level.<level>` . 
-2. Set the `max-level-to-scan-for` to the value of the highest exemption level you granted.
-3. Change the `permission-check-thread-context` value to suit your permissions plugin.
+配置：
+1. 授予权限`libertybans.<类型>.exempt.level.<豁免等级>`。
+2. 将`max-level-to-scan-for`配置设置为你授予过的最高豁免等级。
+3. 调整`permission-check-thread-context`配置的值来适配你的权限管理插件。
 
 ## Layouts [layouts]
 
