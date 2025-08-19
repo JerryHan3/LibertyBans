@@ -26,7 +26,8 @@
 * `libertybans.ban.undo.notify` - 收到玩家被解封的通知
 * `libertybans.ban.undo.notifysilent` -收到玩家被解封的通知，即使是悄悄解封
 
-* 如果启用了持续时间权限：* 需要使用 `libertybans.ban.dur.<timespan>` 来控制玩家封禁时长。
+* 如果启用了持续时间权限：
+  * 需要使用 `libertybans.ban.dur.<timespan>` 来控制玩家封禁时长。
   * 使用 _libertybans.ban.dur.perm_ 来获得永久期限。
   * 时间跨度的格式与命令相同。libertybans.ban.dur.6d "允许禁言最多六天。
   * 如果一个玩家有多个持续时间的权限节点，则使用最长的持续时间。
@@ -69,9 +70,9 @@
 * `libertybans.admin.import` - /libertybans import
 * `libertybans.admin.viewips` - 如果在配置中开启了*censor-ip-addresses*，则允许所有管理员查看玩家的 IP 地址。
 
-### Scopes
+### 范围功能
 
-If scope permissions are enabled, additional permissions are required to punish and list punishments. See the [Scoped Punishments](Scoped-Punishments.md) page.
+如果启用了范围权限，还需要设置额外的权限来使用处罚和列表命令。请参阅[范围处罚](Scoped-Punishments.md)页面。
 
 ## 附加功能
 
@@ -81,19 +82,19 @@ If scope permissions are enabled, additional permissions are required to punish 
 
 在 0.8.x 中，封禁、禁言、警告和踢除的权限都遵循此模板：
 
-* `libertybans.ban.command` - required as a prerequisite for banning
-* `libertybans.ban.ip` - required for banning _IPs_
-* `libertybans.ban.undo` - required as a prerequisite for unbanning
-* `libertybans.ban.undoip` - required for unbanning _IPs_
-* `libertybans.ban.silent` - use the silent feature for bans (e.g. `ban -s`)
-* `libertybans.ban.silentundo` - use the silent feature for unbans (e.g. `unban -s`)
-* `libertybans.ban.notify` - receive notifications for bans
-* `libertybans.ban.unnotify` - receive notifications for unbans
-* `libertybans.ban.notifysilent` - receive notifications for all bans, even those executed with "-s"
-* `libertybans.ban.unnotifysilent` - receive notifications for all unbans, even those executed with "-s"
+* `libertybans.ban.command` - 使用封禁功能的基础权限
+* `libertybans.ban.ip` - 用于封禁_IP_
+* `libertybans.ban.undo` - 使用解封功能的基础权限
+* `libertybans.ban.undoip` - 用于解封_IP_
+* `libertybans.ban.silent` - 用于悄悄封禁 (如`ban -s`)
+* `libertybans.ban.silentundo` - 用于悄悄解封 (如 `unban -s`)
+* `libertybans.ban.notify` - 接收封禁通知
+* `libertybans.ban.unnotify` - 接收解封通知
+* `libertybans.ban.notifysilent` - 接收所有封禁通知，包括使用 "-s" 的悄悄封禁
+* `libertybans.ban.unnotifysilent` - 接收所有解封通知，包括使用 "-s" 的悄悄解封
 
-Replace `ban` with `mute`, `warn`, or `kick` for permissions relevant to other punishment types.
+将`ban`替换为`mute`、`warn`、或`kick`即可授予其他类型处罚相关的权限。
 
-Duration permissions are the same as in 1.0.0.
+限制时长的权限与1.0.0版本中相同。
 
 另请参阅 [从 0.8.x 升级至 1.0.0](Upgrading-to-LibertyBans-1.0.0-from-0.8.x)
