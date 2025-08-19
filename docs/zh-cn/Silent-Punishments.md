@@ -1,25 +1,25 @@
-Normally, when you punish or unpunish a player, two messages are sent:
+一般情况下，当您处罚玩家或者撤销处罚的时候，插件会发送两条消息：
 
-1. A message to the player running the command, telling them it was successful
-2. A message to all other players with a certain permission, telling them a player was punished or unpunished.
+1. 一条发送给执行命令的玩家，告诉他们命令执行成功；
+2. 一条发送给所有有特定权限的玩家，告诉他们有玩家被处罚或被撤销处罚。
 
-This second message is called the notification message. It is usually sent to staff members.
+第二条消息被叫做通知消息。这一般是发送给管理员的。
 
-## Silent Messages
+## 静默消息
 
-The `-s` option allows punishing or unpunishing a player silently. A silent message does not show the notification message.
+`-s`选项允许管理员悄悄地处罚玩家或者撤销处罚。这样操作不会发送通知消息。
 
-For example:
-* `ban -s A248 You are banned`
-* `ban A248 30d -s Banned for 30 days`
+比如：
+* `ban -s A248 您已被封禁`
+* `ban A248 30d -s 封禁30天`
 * `unban A248 -s`
 
-As shown in these examples, `-s` can come anywhere before the punishment reason.
+如上述所示，`-s`可以在处罚原因前任何位置使用。
 
-## Controlling the Silent Feature
+## 控制静默功能
 
-* Only players with the permission `libertybans.<type>.silent` or `libertybans.<type>.silentundo` can use the silent feature.
-* Staff members with the permission `libertybans.<type>.notifysilent` or `libertybans.<type>.unnotifysilent` will always see notification messages, regardless of whether `-s` was used.
-where `<type>` is the punishment type like 'ban' or 'mute'
+* 只有拥有`libertybans.<类型>.silent`或`libertybans.<类型>.silentundo`权限的玩家才能使用静默功能。
+* 拥有`libertybans.<类型>.notifysilent`或`libertybans.<类型>.unnotifysilent`的管理员总是会看到通知消息，无论执行者是否添加了`-s`参数。
+以上说明中的`<类型>`表示如'ban'或'mute'这类处罚类型。
 
-See the [Permissions](Permissions) page for more information.
+请参阅[权限](Permissions)了解更多信息。
