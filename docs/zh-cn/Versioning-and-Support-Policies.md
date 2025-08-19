@@ -1,57 +1,57 @@
-## Versioning
+## 版本命名
 
-LibertyBans follows semantic versioning, with some additional clarifications as to the separation between the API, server-side usage, and database schema compatibility.
+LibertyBans遵循语义版本控制规则，并且附带一些额外的说明来表示API差异、服务端使用方式、和数据库格式兼容性。
 
-The format of a version is **Major**.**Minor**.**Patch**
+版本的格式是**主版本号**.**次版本号**.**修订号**。
 
-The tables indicates possible changes, and the corresponding changes to versioning. For example, `Breaking API change` corresponds to a new major version (ex: 4.0 -> 5.0), so the versioning is 'major version'.
+下面的表格表示了可能的更改，和它们对应到版本号的变更。比如说，"破坏性API变更"与新的主版本号对应（如：4.0到5.0），所以版本控制列写的是"主版本号"。
 
-Note that the presence of a version does not necessarily mean that the changes which require that version will be present. For example, there can be a new major version without breaking schema changes.
+注意版本的变化不一定表示其包含了所有与之对应的修改。比如说，主版本号增加不一定包含破坏性的数据库结构修改。
 
 ### API
-| Change                          | Versioning Change | Description                                                                                                         |
-|---------------------------------|-------------------|---------------------------------------------------------------------------------------------------------------------|
-| Breaking API change             | Major             | *Binary*-incompatible or behavior-incompatible changes to the API.                                                  |
-| Compatible API feature addition | Minor             | Backwards-binary-compatible and behavior-compatible addition to the API. May be *source*-incompatible in rare cases |
-| Implementation bug-fixes        | Patch             | Bugs fixed                                                                                                          |
+| 修改            | 版本控制 | 描述                                                            |
+|----------------|--------|-----------------------------------------------------------------|
+| 破坏性API变更    | 主版本号 | 在*二进制文件*上或行为上不兼容的API的变更。                            |
+| 兼容的API功能添加 | 次版本号 | 二进制向下兼容、且行为兼容的API功能增加，但是罕见情况下会导致*源代码*不兼容。 |
+| 漏洞修复         | 修订号  | 漏洞修复                                                         |
 
-### Database Schema
+### 数据库格式
 
-Database schema changes only matter if you are either:
-1. Running [multiple instances](Running-Multiple-Instances) of LibertyBans.
-2. Running an external program which connects to the database, for example a web interface.
+您只需要在以下情形中关注数据库格式的变更：
+1. 运行LibertyBans的[多个实例](Running-Multiple-Instances)。
+2. 使用连接到数据库的外部程序，如网页面板。
 
-Assuming no external programs are connected to the database, single installations of LibertyBans do not need to be concerned with database schema changes.
+在假定没有额外程序连接到数据库的情况下，使用LibertyBans的唯一实例不需要考虑数据库格式修改。
 
-| Change                            | Versioning Change | Description                                                                                                                                                                                                                                                                                                                                                                    |
+| 修改                            | 版本控制 | 描述                                                                                                                                                                                                                                                                                                                                                                    |
 |-----------------------------------|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Breaking database schema          | Major             | Past versions of LibertyBans will not be able to read or use the new schema                                                                                                                                                                                                                                                                                                    |
-| Compatible database schema change | Minor             | **The last minor release** of LibertyBans will be able to read and use the new schema. Previous minor releases of LibertyBans *may NOT* be able to read or use the new schema. For example, this means you can upgrade from 1.2.x to 1.3.x safely, but you *cannot* upgrade from 1.1.x to 1.3.x. You cannot safely have versions 1.1.x and 1.3.x co-existing at the same time. |
+| 破坏性数据库格式修改          | 主版本号             | 就版本的LibertyBans无法读取、使用新版数据库                                                                                                                                                                                                                                                                                                    |
+| 兼容的数据库格式修改 | 次版本号             | LibertyBans的**最后一个次要版本**可以读取并使用新版数据库。更早的LibertyBans版本*可能无法*读取或使用新版数据库。比如，这意味着您可以从1.2.x安全地更新到1.3.x，但是您*不能*直接从1.1.x更新到1.3.x。您无法让1.1.x和1.3.x版本正常地共存。|
 
-### Server-side Usage
-| Change                              | Versioning Change | Examples                                                                           |
+### 服务端使用
+| 修改                              | 版本控制 | 示例                                                                           |
 |-------------------------------------|-------------------|------------------------------------------------------------------------------------|
-| Breaking server-side usage          | Major             | Command re-names, permission changes, backwards-incompatible configuration changes |
-| Compatible server-side usage change | Minor             | Permission rename, but the old permission is still supported alongside the new one |
-| Server-side usage feature addition  | Patch             | New command added, new configuration option                                        |
+| 破坏性服务端功能更改          | 主版本号             | 命令重命名、权限变更、向下不兼容的配置文件变更 |
+| 兼容的服务端功能更改 | 次版本号             | 权限重命名，但是旧的权限名仍可生效 |
+| 服务端功能增添  | 修订号             | 添加新命令、或新的配置选项                                        |
 
-## Support
+## 支持
 
-| Version                | Support Provided                                           |
-|------------------------|------------------------------------------------------------|
-| Latest released        | Always                                                     |
-| Previous minor version | At least 1 month after the next minor version is released  |
-| Previous major version | At least 4 months after the next major version is released |
+| 版本         | 支持提供时限                |
+|-------------|---------------------------|
+| 最新版本      | 总会支持                   |
+| 上一个次要版本 | 下个次要版本发布后的至少1个月内 |
+| 上一个主要版本 | 下个主要版本发布后的至少4个月内 |
 
-There is no timeline for responding to support requests, but an effort will be made to respond within 3 business days *at maximum*, ideally within 1 day.
+我们没有明确的处理支持请求的时间线，但是我们会尽力在*最多*3天之内进行回复，一般情况下会在1天之内。
 
-### Support for Previous Versions
+### 对旧版本的支持。
 
-* You must be on the most recent version *for that version*. For example, you cannot expect support for 1.4.2 if 1.4.3 has been released.
-* Support may be slower than that for the latest version. If you are on the latest version, you are more likely to receive support *faster* and *from more users*.
+* 您必须使用该次要版本下的*最新*修订版。比如，如果1.4.3版本发布了，您不太会获得对1.4.2版本的支持。
+* 相较于最新版本，对旧版的支持会更慢。如果您使用最新版本，您就可以从*更多用户*获得*更快*的支持。
 
-### A Note on Bugs in Other Software
+### 对于其他软件中漏洞的提示
 
-Sometimes, we identify bugs in other software which could affect LibertyBans. We may require you to fix these bugs before requesting further support.
+有的时候，我们会发现其他软件中存在影响LibertyBans的漏洞。我们可能会要求您在继续获得支持之前先修复这些漏洞。
 
-We are glad to assist you in fixing bugs on your server. The LibertyBans community is reputed for discovering, reporting, and fixing bugs in other plugins. Ultimately, however, we are only responsible for fixing our own bugs.
+我们很乐意帮助您修复您服务器上的问题。LibertyBans的社区就是靠积极地发现、反馈、修复其他插件中的漏洞而闻名的。不过到头来，我们只对我们自己软件中的漏洞负责。
