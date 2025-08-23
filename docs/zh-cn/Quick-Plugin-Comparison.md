@@ -35,53 +35,53 @@
 
 NA - 不适用
 
-### Why does LibertyBans check all the boxes?
+### 为什么LibertyBans的所有单元格都打了勾？
 
-It didn't used to. This chart was created when LibertyBans didn't have multi-instance support, exemption, server scopes, layouts, or switching storage backends. With this exception of layouts and switching storage, all these features were listed in the table, but they were unimplemented and unrequested -- with no plans to add them! Back then, LibertyBans used to receive ❌️ or ➖️ in many areas.
+过去不是这样。这个表格是在LibertyBans还没有多实例支持、豁免功能、服务器范围配置、模板预设、或切换存储后端等功能的时候创建的。在这些功能尚不存在的时候，所有的功能都被列在了表格里面，但它们还没有被实现，也没人提出相关请求——也就是还没计划加入这些功能！那时，LibertyBans还有很多❌或➖️的标记。
 
-Over time, features were requested and implemented, so LibertyBans fulfills these categories now and receives ✔️. Competitor plugins still have capabilities not found in LibertyBans, but they aren't deemed sufficiently important or central to the purpose of punishment to have a place on the table.
+时过境迁，这些功能陆续得到需求并被实现，因此LibertyBans现在满足这些类别的要求，并得到了✔️标记。同类插件里还有很多LibertyBans里面不存在的功能，但是就处罚玩家这个目的而言，它们的功能不算很重要或者很核心，因此没有在表格上出现。
 
-How do we know the features listed in the table are sufficiently important and central to the purpose of a punishment plugin? Well, in most cases, we *predicted* which features would be most important, so we placed them in the table. The predictions turned out to be correct, since the categories in the table were the most popular feature requests.
+我们是怎么知道表格中列出的功能对于处罚插件是核心且重要的？在大多数情况下，我们会*预测*哪些功能最重要，并把它们列入表格中。这些预测最后被证实是准确的，因为表格中的这些类别也是功能请求中热度最高的几项。
 
-## Categories
+## 类别
 
-Some categories require further explanation because they are not self-explanatory. They are described here.
+由于有些类别的含义不太明确，它们需要进一步的解释。以下是详细描述。
 
-Some categories are too complex to describe here. When this is the case, it is necessary to read the detailed plugin-by-plugin comparisons. You can find these on the sidebar at the right. For each plugin here, there is a detailed comparison between LibertyBans and the plugin.
+有些类别在这里描述起来太过复杂。您需要去读一下具体的插件对插件的对比页面来了解这些类别的细节。您可以在侧边栏里面找到这些页面。每一个插件都有一份与LibertyBans的详尽对比说明。
 
-### Supported Platforms
+### 支持平台
 
-Which platforms are supported by a stable release of the plugin.
+即插件的稳定发布版所支持的软件平台。
 
-### Java Requirement
+### Java版本要求
 
-The minimum Java version needed to run the software.
+即软件运行所要求的最低Java版本。
 
-### License
+### 开源
 
-Whether the software is under a free software license. Requirements:
-1. Freedom of source code: the software is open-source
-2. Freedom of use: the user can use the software for whatever purpose
+即插件是否以自由软件许可证发布。有以下两点要求：
+1. 源代码自由：软件公开了源代码
+2. 使用自由：用户可以将软件用于任何目的
 
-BanManager's license prohibits commercial use. This makes it **illegal** to use BanManager for monetary profit. However, it is open-source; hence the "partial" ranking.
+BanManager的许可证禁止将其用于商业用途。因此将其用于赚钱是**非法**的。尽管如此，它的源代码仍然时公开的，因此他得到了“部分”的标记。
 
-LiteBans is obfuscated, meaning its plugin jar is intentionally scrambled to prevent anyone from inspecting its operations, debugging issues, or making any sort of modification.
+LiteBans的代码经过了混淆，这意味着它的jar文件被刻意地进行了混淆处理，防止任何人研究其运作方式、调试问题、或进行任何修改。
 
-Disclaimer: This is not legal advice and the writer is not a lawyer.
+免责声明：本页面不构成法律建议，其作者也不是律师。
 
-### Thread-Safe Design
+### 线程安全设计
 
-If a plugin is not thread-safe, it will have unreliable and buggy behavior. However, some of this unreliable behavior may only occur in exceptional and rare circumstances, making it very hard to debug and diagnose.
+如果插件做不到线程安全，它的行为就会不稳定、很容易出现问题。不过，有些不稳定的行为只会在罕见的意外情况中出现，这使得开发者很难调试、分析这些问题。
 
-See the detailed plugin-specific comparisons for more information.
+请查阅详细的插件对比页面了解详情。
 
-### Stable API
+### 稳定的API
 
-Whether the plugin's API is semantically-versioned and therefore can be relied upon in stable fashion by other plugins.
+即插件的API是否遵循语义化版本控制，因此其他插件是否可以稳定地依赖它的API。
 
-See [semver.org](https://semver.org/) and the detailed plugin-specific comparisons.
+请参阅[semver.org](https://semver.org/)和详细的插件对比页面。
 
-LiteBans' *partial* ranking: LiteBans follows the semver constraint of restricting breaking changes to major versions, but does not follow semver for additions of new API, which *should* be done in minor releases.
+LiteBan的“部分”标记：LiteBans遵循语义化版本控制中对“主版本号”仅限于破坏性修改的要求，但是并没有遵循对新API的语义化版本要求，这理应在次版本号中予以指出。
 
 ### Geyser Support
 
