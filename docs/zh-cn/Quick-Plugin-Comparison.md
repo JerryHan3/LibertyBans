@@ -41,7 +41,7 @@ NA - 不适用
 
 时过境迁，这些功能陆续得到需求并被实现，因此LibertyBans现在满足这些类别的要求，并得到了✔️标记。同类插件里还有很多LibertyBans里面不存在的功能，但是就处罚玩家这个目的而言，它们的功能不算很重要或者很核心，因此没有在表格上出现。
 
-我们是怎么知道表格中列出的功能对于处罚插件是核心且重要的？在大多数情况下，我们会*预测*哪些功能最重要，并把它们列入表格中。这些预测最后被证实是准确的，因为表格中的这些类别也是功能请求中热度最高的几项。
+我们是如何知道表格中列出的功能对于处罚插件是核心且重要的？在大多数情况下，我们会*预测*哪些功能最重要，并把它们列入表格中。这些预测最后被证实是准确的，因为表格中的这些类别也是功能请求中热度最高的几项。
 
 ## 类别
 
@@ -81,13 +81,13 @@ LiteBans的代码经过了混淆，这意味着它的jar文件被刻意地进行
 
 请参阅[semver.org](https://semver.org/)和详细的插件对比页面。
 
-LiteBan的“部分”标记：LiteBans遵循语义化版本控制中对“主版本号”仅限于破坏性修改的要求，但是并没有遵循对新API的语义化版本要求，这理应在次版本号中予以指出。
+LiteBans的“部分”标记：LiteBans遵循语义化版本控制中对“主版本号”仅限于破坏性修改的要求，但是并没有遵循对新API的语义化版本要求，这理应在次版本号中予以指出。
 
-### Geyser Support
+### Geyser支持
 
-Whether the plugin is compatible with Geyser/Floodgate, a plugin which allows Bedrock Edition players to join the server or proxy by changing usernames.
+即插件是否与Geyser、Floodgate兼容。这是通过修改用户名来使基岩版玩家得以进入服务器或跨服端的插件。
 
-LiteBans' *partial* ranking: LiteBans claims Geyser compatibility, but its documentation suggests the period character is the only supported prefix for Bedrock usernames.
+LiteBans的*部分*标记：LiteBans宣称与Geyser兼容，但根据其文档所述，默认的句点（.）字符是唯一支持的基岩版用户名签注UI
 
 ### Multi-Instance Support
 
