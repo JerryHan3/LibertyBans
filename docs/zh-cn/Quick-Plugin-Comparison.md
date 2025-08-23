@@ -87,7 +87,7 @@ LiteBans的“部分”标记：LiteBans遵循语义化版本控制中对“主�
 
 即插件是否与Geyser、Floodgate兼容。这是通过修改用户名来使基岩版玩家得以进入服务器或跨服端的插件。
 
-LiteBans的*部分*标记：LiteBans宣称与Geyser兼容，但根据其文档所述，默认的句点（.）字符是唯一支持的基岩版用户名签注UI
+LiteBans的*部分*标记：LiteBans宣称与Geyser兼容，但根据其文档所述，默认的句点（.）字符是唯一支持的基岩版用户名前缀。
 
 ### Multi-Instance Support
 
