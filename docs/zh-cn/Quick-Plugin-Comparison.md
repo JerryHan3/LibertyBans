@@ -1,4 +1,4 @@
-本页面是一个在LibertyBans，AdvancedBan，BanManager，和LiteBans之间进行对比的速查表格。
+7本页面是一个在LibertyBans，AdvancedBan，BanManager，和LiteBans之间进行对比的速查表格。
 
 **特别注意：*本页面上的图标不能展示全貌！*** 如果您想要了解细节，请阅读详细的解释和比较文本。您可以在侧边栏找到它们。对于这里所示的每一个插件，都有一份与LibertyBans的详细对比文档。
 
@@ -63,7 +63,7 @@ NA - 不适用
 1. 源代码自由：软件公开了源代码
 2. 使用自由：用户可以将软件用于任何目的
 
-BanManager的许可证禁止将其用于商业用途。因此将其用于赚钱是**非法**的。尽管如此，它的源代码仍然时公开的，因此他得到了“部分”的标记。
+BanManager的许可证禁止将其用于商业用途。因此将其用于赚钱是**非法**的。尽管如此，它的源代码仍然是公开的，因此它得到了“部分”的标记。
 
 LiteBans的代码经过了混淆，这意味着它的jar文件被刻意地进行了混淆处理，防止任何人研究其运作方式、调试问题、或进行任何修改。
 
@@ -146,7 +146,7 @@ BanManager的“部分”标记：BanManager只支持由H2数据库到MySQL/Mari
 
 即插件支持的数据导入来源。
 
-LiteBans对LibertyBans的*部分*标记：LiteBans不能导入服务器范围信息，但是服务器范围是二者共有的功能。
+LiteBans对LibertyBans的“部分”标记：LiteBans不能导入服务器范围信息，但是服务器范围是二者共有的功能。
 
 此外，LiteBans还能从以下4个被弃用的插件导入数据：BanHammer，BungeeAdminTools，MaxBans，和UltraBans。以上插件均已至少3年没有更新过代码。
 
