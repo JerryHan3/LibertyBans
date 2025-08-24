@@ -15,7 +15,7 @@
 [GPL]:https://www.gnu.org/graphics/gplv3-127x51.png
 [CC-BY-NC]:http://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc.png
 
-| 插件      | 支持平台                                                                                                                                                                                                                                                                                                                                                      | Java版本要求 | 免费 | 开源               | 支持数据库                        | 线程安全设计 | 稳定的API | 支持Geyser | 支持多实例 | 使用连接池 | 豁免功能 | 服务器范围功能 | 预设/模板功能 | 使用UUID | 数据库完整性 | 可切换存储方式 | 支持的导入源                                                                                                                                        |
+| 插件      | 支持平台                                                                                                                                                                                                                                                                                                                                                      | Java版本要求 | 免费 | 开源               | 支持数据库                        | 线程安全设计 | 稳定的API | 支持Geyser | 支持多实例 | 使用连接池 | 豁免功能 | 服务器范围功能 | 预设/模板功能 | 使用UUID | 数据库完备性 | 可切换存储方式 | 支持的导入源                                                                                                                                        |
 |-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|---------------|----------------------------|--------------------------------------------|--------------------|------------|----------------|------------------------|-----------------|-----------|---------------|---------------------|------------|------------------|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 | LibertyBans | ![Bukkit]Bukkit<br/> <img src="https://avatars.githubusercontent.com/u/1007849?v=4" width=16>Bungee<br/> <img src="https://www.spongepowered.org/assets/img/icons/spongie-mark.svg" width=16>Sponge <img src="https://raw.githubusercontent.com/PaperMC/velocitypowered.com/5878ae0941e3adff3a238fe9020250c5f01c2899/src/assets/img/velocity-blue.png" width=16>Velocity | 17+       | ✔️            | ✔️ ![AGPL]                 | HSQLDB (本地), MariaDB, MySQL, PostgreSQL | ✔️                 | ✔️         | ✔️             | ✔️                     | ✔️              | ✔️        | ✔️            | ✔️                  | ✔️         | ✔️               | ✔️                      | AdvancedBan<br/>BanManager<br/>LiteBans<br/>原版                                                                                                |
 | AdvancedBan | ![Bukkit]Bukkit<br/> <img src="https://avatars.githubusercontent.com/u/1007849?v=4" width=16>Bungee                                                                                                                                                                                                                                                                      | 8+        | ✔️            | ✔️ ![GPL]                  | HSQLDB (本地), MariaDB, MySQL             | ❌️                 | ❌️         | ❓              | ❌️                     | ❌️              | ✔️        | ❌️            | ✔️                  | ➖️         | ❌️               | ❌️                      |                                                                                                                                                    |
@@ -83,73 +83,73 @@ LiteBans的代码经过了混淆，这意味着它的jar文件被刻意地进行
 
 LiteBans的“部分”标记：LiteBans遵循语义化版本控制中对“主版本号”仅限于破坏性修改的要求，但是并没有遵循对新API的语义化版本要求，这理应在次版本号中予以指出。
 
-### Geyser支持
+### 支持Geyser
 
 即插件是否与Geyser、Floodgate兼容。这是通过修改用户名来使基岩版玩家得以进入服务器或跨服端的插件。
 
 LiteBans的*部分*标记：LiteBans宣称与Geyser兼容，但根据其文档所述，默认的句点（.）字符是唯一支持的基岩版用户名前缀。
 
-### Multi-Instance Support
+### 支持多实例
 
-This feature allows synchronizing punishments across multiple instances of the given plugin. It is relevant for proxies.
+该功能使得同一插件的多个实例之间能互相同步处罚记录。这与群组服密切相关。
 
-This is commonly used for multi-proxy setups, but can also be used for installing the plugin on the backend servers rather than the proxy.
+该功能一般用于多代理端的配置，但也可以用于把插件安装在在后端服务器的情形。
 
-### Connection Pool
+### 使用连接池
 
-Includes whether the plugin has a connection pool *and* takes advantage of it.
+即插件是否使用连接池*并*利用其优势。
 
-AdvancedBan has a connection pool, but in practice, can only use 1 connection at a time, which is effectively the same as not using a connection pool.
+AdvancedBan采用了连接池，但实际上它只能同时建立1个连接，这和不使用连接池是等效的。
 
-### Exemption
+### 豁免功能
 
-Whether the plugin can prevent lower-ranked staff from banning higher-ups through a system of exemption levels.
+即插件能否通过豁免等级系统阻止低级管理员封禁高级管理员。
 
-BanManager's *no* ranking: While BanManager has a basic exemption feature without levels, it requires every exempted player to be written out in the BanManager configuration. This is far too inconvenient in many cases, since it requires reconfiguring and reloading BanManager every time staff are promoted.
+BanManager的“否”标记：尽管BanManager具备一个不带等级的豁免功能，但是这个功能需要将被豁免的玩家手动写入BanManager的配置文件里面。由于每次调整管理员等级都需要重新配置并加载BanManager，在多数情况下这都实在是不够方便。
 
-LiteBans' *partial* ranking: The plugin does not support arbitrary levels of exemption.
+LiteBans的“部分”标记：插件不支持通过数字配置豁免等级。
 
-### Server Scopes
+### 服务器范围功能
 
-This feature is relevant for proxies. Whether the plugin has the ability to define "scopes" and create punishments applying to certain scopes. This allows server administrators to create punishments applying to a specific backend server or a group of backend servers.
+该功能与群组服相关。此项表示插件能否定义服务器范围，并执行针对特定范围的处罚。该功能使得管理员可以执行针对特定服务器或一组服务器的处罚。
 
-BanManager's and LiteBan's *partial* ranking: BanManager has the ability to create a "local" punishment, meaning it applies to one backend server. However, it does not have the ability to define punishments applying to a group of backend servers; further, local punishments cannot be created from separate servers. LiteBans has server scopes, but similarly, it cannot create scopes applying to a group of servers.
+BanManager和LiteBans的“部分”标记：BanManager可以执行一个“本地”处罚，即只对一个后端服务器生效的处罚。不过，它无法让一个处罚在一组后端服务器生效；同时管理员也不能执行针对其他后端服务器的处罚。LiteBans具有单服务器范围功能，但同样，它不能执行对一组服务器生效的处罚。
 
-### Layouts / Templates
+### 预设/模板功能
 
-Whether the plugin can automatically fill in details such as the reason and time, including based on the past history of the punished player.
+即插件能否自动补全处罚的详细信息，如原因和时间。这也包括根据目标玩家的既往处罚历史自动升级处罚的功能。
 
-BanManager's *partial* ranking: Reason shortcuts are provided; however, automatic time calculation based on past history is not implemented.
+BanManager的“部分”标记：插件提供了简写原因的功能，但是基于过往记录计算处罚时间的功能还没有实现。
 
-### Uses UUIDs
+### 使用UUID
 
-Whether the plugin stores UUIDs instead of player names, for both the targets of punishments and operators of punishments. Player names can change, so they cannot be relied upon.
+即插件是否存储处罚目标和执行者的UUID，而不是他们的玩家名。玩家名可以被修改，因此不能用于身份判别。
 
-AdvancedBan's *partial* ranking: AdvancedBan uses UUIDs for the targets of punishments. However, it uses player names for operators.
+AdvancedBan的“部分”标记：AdvancedBan会使用UUID记录处罚目标。但是对于执行者，它只记录了玩家名称。
 
-### Schema Integrity
+### 数据库完备性
 
-Whether the data types defined by the plugin's database schema have appropriate constraints and are of the correct type.
+即插件为数据库定义的数据种类是否具有合适的约束和准确的类型。
 
-* When a database schema has integrity, a bug in the plugin will *not* corrupt user data.
-* Otherwise, bugs in the plugin may corrupt user data.
+* 如果插件的数据库完备，插件本身的漏洞就*不会*损坏用户的数据。
+* 否则，插件的漏洞就有可能破坏用户数据。
 
-Data corruption, if it occurs, is not easy to recover from and may require manually interfacing with the database.
+一旦数据损坏，就很难恢复，并且需要运维手动操作数据库。
 
-### Switch Storage Backends
+### 可切换存储方式
 
-Whether the user can switch between the supported database backends. This feature is also known as "self-importing."
+即用户能否在支持的存储数据库之间切换数据存储方式。该功能也称作“自我导入”。
 
-BanManager's *partial* ranking: BanManager only supports converting from H2 to MySQL/MariaDB, but it is not possible to switch back to H2.
+BanManager的“部分”标记：BanManager只支持由H2数据库到MySQL/MariaDB的转换，但不能将其迁回H2。
 
-### Import From
+### 支持的导入源
 
-The other punishment suites this plugin can import from.
+即插件支持的数据导入来源。
 
-LiteBans' *partial* ranking with respect to LibertyBans: LiteBans does not import server scopes, although scopes are a common feature between them.
+LiteBans对LibertyBans的*部分*标记：LiteBans不能导入服务器范围信息，但是服务器范围是二者共有的功能。
 
-Moreover, LiteBans can import from 4 abandoned plugins: BanHammer, BungeeAdminTools, MaxBans, and UltraBans. These plugins have received no codebase updates for at least 3 years.
+此外，LiteBans还能从以下4个被弃用的插件导入数据：BanHammer，BungeeAdminTools，MaxBans，和UltraBans。以上插件均已至少3年没有更新过代码。
 
 --------------------------------------------------------------------------
 
-As a closing note, this information is kept up-to-date within a reasonable timeframe. We welcome PRs from those affiliated with other plugins to update this information when necessary.
+最后说明一下，以上信息均在合理的时间范围内尽量保持更新。我们欢迎来自其他插件的相关人士提出必需的信息更新PR。
