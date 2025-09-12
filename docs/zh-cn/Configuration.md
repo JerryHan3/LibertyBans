@@ -14,13 +14,13 @@
 
 ### 语法
 
-LibertyBans使用常见的".yml"文件。您可以使用[在线YAML解析器](https://yaml-online-parser.appspot.com)验证配置文件的有效性。
+LibertyBans使用常见的".yml"文件。您可以使用[在线YAML解析器](zh-cn/https://yaml-online-parser.appspot.com)验证配置文件的有效性。
 
 ## 重载配置
 
 ### 重载命令
 
-如果您拥有必需的[权限](Permissions)，您可以使用重载命令重新加载大部分配置。
+如果您拥有必需的[权限](zh-cn/Permissions)，您可以使用重载命令重新加载大部分配置。
 
 ```
 /libertybans reload
@@ -39,4 +39,4 @@ LibertyBans使用常见的".yml"文件。您可以使用[在线YAML解析器](ht
 
 ### 扩展
 
-安装[扩展](Addons)则需要彻底重启服务器。
+安装[扩展](zh-cn/Addons)则需要彻底重启服务器。
